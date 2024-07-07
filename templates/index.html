@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="../static/img/home-button.png">
+    <title>House Price Prediction</title>
+    <!-- BOXICONS -->
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- STYLE -->
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body id="body"> 
+    <div class="form-container">
+        <div class="form-col">
+            <div class="btn-box">
+                <button class="btn btn-1" id="login">Home</button>
+                <button class="btn btn-2" id="register">Prediction</button>
+            </div>
+
+            <!--Home Form Container-->
+            <form id="loginForm" method="POST" action="/predict" class="form-box login-form">
+                <div class="form-title">
+                    <span>House Price Prediction App</span>
+                </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <label for="location_selected">Location:</label>
+                        <select class="input input-select" name="location_selected" id="location_selected">
+                            <option value="location_N">North</option>
+                            <option value="location_NE">North East</option>
+                            <option value="location_NW">North West</option>
+                            <option value="location_S">South</option>
+                            <option value="location_SW">South West</option>
+                            <option value="location_E">East</option>
+                            <option value="location_W">West</option>
+                        </select>  
+                        <br><br>
+                    </div>
+                    <div class="input-box">
+                        <label for="bedrooms">Bedrooms:</label>
+                        <input type="number" class="input input-field" id="bedrooms" name="bedrooms" value="3" min="1" max="6">
+                        <br><br>
+                    </div>
+                    <div class="input-box">
+                        <label for="bathrooms">Bathrooms:</label>
+                        <input type="number" class="input input-field" id="bathrooms" name="bathrooms" value="2" min="1" max="4">
+                        <br><br>
+                    </div>
+                    <div class="input-box">
+                        <label for="sqft_living">Living square feet:</label>
+                        <input type="number" class="input input-field" id="sqft_living" name="sqft_living" value="2201" min="370" max="4350"><br><br>
+                    </div>
+                    <div class="input-box">
+                        <label for="floors">Floors:</label>
+                        <input type="number" class="input input-field" id="floors" name="floors" value="2" min="1" max="3"><br><br>                    
+                    </div>
+                    <div class="input-box">
+                        <label for="view">View:</label>
+                        <input type="number" class="input input-field id="view" name="view" value="1" min="0" max="2"><br><br>                
+                    </div>
+                    <div class="input-box">
+                        <label for="condition">Condition:</label>
+                        <input type="number" class="input input-field" id="condition" name="condition" value="3" min="2" max="5"><br><br>                
+                    </div>
+                    <div class="input-box">
+                        <label for="sqft_above">Square Footage of House:</label>
+                        <input type="number" class="input input-field" id="sqft_above" name="sqft_above" value="2201" min="370" max="3260"><br><br>                
+                    </div>
+                    <div class="input-box">
+                        <label for="sqft_basement">Basement Square:</label>
+                        <input type="number" class="input input-field" id="sqft_basement" name="sqft_basement" value="20" min="0" max="1600"><br><br>                
+                    </div>
+                    <div class="input-box">
+                        <label for="age_house">Age House:</label>
+                        <input type="number" class="input input-field" id="age_house" name="age_house" value="50" min="0" max="114"><br><br>
+                    </div>
+                    <div class="input-box">
+                        <label for="building_renewal">Building Renewal:</label>
+                        <input type="number" class="input input-field" id="building_renewal" name="building_renewal" value="50" min="0" max="114"><br><br>
+                    </div>
+
+                </div>
+                <div class="form-inputs_reg">
+                    <button type="submit" class="inputs submit-btn" id="predictBtn">
+                        <span>Predict</span>
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                    </button>
+                </div>
+            </form>
+            <!--- Prediction Form Container --->
+            <form class="form-box register-form">
+                <div class="form-title">
+                    <span>Prediction</span>
+                </div>
+                <div class="form-inputs_reg">
+                    <div class="card-image">
+                        <img class="image-prediction" src='../static/img/2.jpg' alt="House Prediction">
+                    </div>
+                    <div class="input-box2">
+                    <h3 class="inputs2" required>{{ prediction }}</h3>
+                    </div>
+
+                </div>
+                <div class="form-inputs_reg">
+                <div class="button-predict register-form">
+                    <button type="button" class="inputs submit-btn" id="registerHomeBtn">
+                        <ion-icon name="arrow-back-outline"></ion-icon>
+                        <span>Home</span>
+                    </button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../static/js/main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- JS -->
+    
+</body>
+</html>
