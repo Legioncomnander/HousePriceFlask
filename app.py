@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler
 app = Flask(__name__)
 
 # Load model and scaler
-model = pickle.load(open('xgb_model.pkl', 'rb'))
+model = pickle.load(open('Hubner.pkl', 'rb'))
 scaler = joblib.load(open('scaler.pkl', 'rb'))
 
 @app.route('/')
@@ -32,7 +32,7 @@ def predict():
     
     # Membuat DataFrame dari input
     data = {
-        'location': [location],
+        'statezip': [location],
         'bedrooms': [bedrooms],
         'bathrooms': [bathrooms],
         'sqft_living': [sqft_living],
@@ -47,7 +47,7 @@ def predict():
     input_df = pd.DataFrame(data)
     
     # Encoding untuk fitur kategorikal
-    encode = ['location']  # Sesuaikan dengan nama kolom yang perlu di-encode
+    encode = ['statezip']  # Sesuaikan dengan nama kolom yang perlu di-encode
     input_encoded = pd.get_dummies(input_df, columns=encode)
     
     # Menambahkan kolom yang hilang dan mengatur ulang urutan kolom
@@ -66,4 +66,3 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
